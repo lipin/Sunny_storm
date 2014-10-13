@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :devlopment do
+	gem 'thin'
+	gem 'annotate','~> 2.6.5'
+	gem 'foreman'
+	gem "better_errors"
+end
