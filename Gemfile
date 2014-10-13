@@ -43,5 +43,5 @@ group :devlopment do
 	gem 'thin'
 	gem 'annotate','~> 2.6.5'
 	gem 'foreman'
-	gem "better_errors"
+	gem 'better_errors'
 end
