@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users,controllers: {sessions: 'admin/sessions'}
+  devise_for :users
   root 'home#index'
   get 'about'=>'home#about'
   get 'life'=>'home#life'
