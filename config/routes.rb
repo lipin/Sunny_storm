@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :shares
+
   namespace :admin do
      root 'home#index'
   end
