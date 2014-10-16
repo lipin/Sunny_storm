@@ -10,10 +10,21 @@
     <script src="js/modernizr.js"></script>
     <![endif]-->
     <%= stylesheet_link_tag    :admin %>
-    <%= javascript_include_tag :admin %>
+    <%#= javascript_include_tag :admin %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-      <%= yield %>
+    <%- if devise_controller? && !admin_user_signed_in? %>
+        <%= yield%>
+    <% else %>
+        <div class='container'>
+          <%= render 'admin/share/header' %>
+        </div>
+        <div class='container'>
+          <%= yield%>
+        </div>
+    <% end %>
+    <%= javascript_include_tag :admin %>
+    <%= yield :js %>
   </body>
 </html>

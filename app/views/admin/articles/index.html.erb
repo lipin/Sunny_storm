@@ -10,13 +10,13 @@
   </thead>
 
   <tbody>
-    <% collection.each do |admin_article| %>
+    <% collection.each do |resource| %>
       <tr>
-        <td><%= admin_article.title %></td>
-        <td><%= admin_article.content %></td>
-        <td><%= link_to 'Show', admin_article_path(admin_article) %></td>
-        <td><%= link_to 'Edit', edit_admin_article_path(admin_article) %></td>
-        <td><%= link_to 'Destroy', admin_article_path(admin_article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= resource.title %></td>
+        <td><%= resource.content %></td>
+        <td><%= link_to 'Show', admin_article_path(resource) %></td>
+        <td><%= link_to 'Edit', edit_admin_article_path(resource) %></td>
+        <td><%= link_to 'Destroy', admin_article_path(resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
