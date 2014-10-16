@@ -1,27 +1,27 @@
-<h1>Listing articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% collection.each do |resource| %>
-      <tr>
-        <td><%= resource.title %></td>
-        <td><%= resource.content %></td>
-        <td><%= link_to 'Show', article_path(resource) %></td>
-        <td><%= link_to 'Edit', edit_article_path(resource) %></td>
-        <td><%= link_to 'Destroy', article_path(resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+<article>
+    <h2 class="about_h">
+      <%= link_to "首页",root_path %>&gt;
+      <%= link_to "分享", articles_path %>
+    </h2>
+    <div class="bloglist">
+      <%- collection.each do |resource| %>
+        <div class="newblog">
+            <ul>
+              <h3><%= link_to resource.title,article_path(resource) %></h3>
+              <div class="autor">
+                <span>作者：<%= resource.user.username %></span>
+                <span>分类：[<a href="index.php?m=title&amp;a=title_list&amp;id=1">日记</a>]</span>
+                <span>浏览（<a href="#">63</a>）</span>
+                <span>评论（<a href="#">1</a>）</span></div>
+              <p>
+                <%= resource.content %>
+                <%= link_to "阅读全文",article_path(resource),target: "_blank", class: "readmore" %>
+              </p>
+            </ul>
+          <figure><%= image_tag('01.jpg')%></figure>
+          <div class="dateview"><%= resource.created_at %></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="page"><a title="Total record"><b>113</b></a><b>1</b><a href="/">2</a><a href="/">3</a><a href="/">4</a><a href="/">5</a><a href="/">&gt;</a><a href="/">&gt;&gt;</a></div>
+</article>
