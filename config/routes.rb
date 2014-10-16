@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :shares
+  namespace :admin do
+    resources :articles
+  end
+
+  resources :articles
 
   namespace :admin do
      root 'home#index'
