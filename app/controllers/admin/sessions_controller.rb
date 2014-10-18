@@ -10,6 +10,6 @@ class Admin::SessionsController < Devise::SessionsController
   private
 
   def after_sign_in_path_for(resource)
-    admin_articles_path
+    admin_root_path
   end
 end
