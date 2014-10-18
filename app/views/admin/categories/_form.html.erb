@@ -1,0 +1,5 @@
+<%= simple_form_for resource,url: url, defaults: { input_html: { class: 'default_class' } } do |f| %>
+  <%= f.input :name, input_html: { class: 'special' } %>
+  <%= f.input :parent_id,collection: Category.roots,input_html: { class: 'select2-option',maxlength: 20 } %>
+  <%= f.button :submit %>
+<% end %>

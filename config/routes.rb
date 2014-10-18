@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
      root 'home#index'
+     resources :categories
   end
+
+  get 'categories/sub_categories'=> 'categories#sub_categories', as: :load_subcategory
 
   devise_for :admin_users,controllers: {sessions: 'admin/sessions'}
   devise_for :users

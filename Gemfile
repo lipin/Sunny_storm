@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -18,6 +18,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise', '~> 3.4.0'
 
 gem 'inherited_resources', '~> 1.5.0'
+
+gem 'ancestry'
+
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
