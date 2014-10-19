@@ -9,7 +9,7 @@
                               input_html: { class: 'select2 category_select' }
                                 %>
   <%= f.input :sub_category_id,as: :select,
-                              collection:resource.new_record? ? [] : resource.category.children,
+                              collection:resource.new_record? ? [] : resource.category.try(:children),
                               label: false,
                               prompt: '全部...',
                               input_html: { class: 'select2 category_target' }%>
