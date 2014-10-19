@@ -22,6 +22,7 @@ gem 'inherited_resources', '~> 1.5.0'
 gem 'ancestry'
 
 gem 'simple_form'
+gem "nested_form"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

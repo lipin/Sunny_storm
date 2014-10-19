@@ -1,25 +1,17 @@
-<%= form_for(resource, url: url) do |f| %>
-  <% if resource.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this admin_article from being saved:</h2>
 
-      <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_nested_form_for resource,url: url, defaults: { input_html: { class: 'default_class' } } do |f| %>
+  <%= f.input :title, input_html: { class: 'special' } %>
+  <%= f.input :content,input_html: { class: 'special',maxlength: 20 } %>
+  <%= f.input :category_id, as: :select,
+                              collection: Category.roots,
+                              label: false,
+                              prompt: '全部...',
+                              input_html: { class: 'select2 category_select' }
+                                %>
+  <%= f.input :sub_category_id,as: :select,
+                              collection:resource.new_record? ? [] : resource.category.children,
+                              label: false,
+                              prompt: '全部...',
+                              input_html: { class: 'select2 category_target' }%>
+  <%= f.button :submit ,class: 'btn btn-primary'%>
 <% end %>

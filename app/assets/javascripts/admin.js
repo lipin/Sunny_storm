@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require admin
+//= require jquery_nested_form
+//admin/libs/select2.min
+//= require admin/articles

@@ -27,7 +27,7 @@
             </h3>
               <div class="autor">
                 <span>作者：<%= resource.user.username%></span>
-                <span>分类：[<a href="index.php?m=title&amp;a=article_list&amp;article_id=1">日记</a>]</span>
+                <span>分类：[<%= link_to resource.category.try(:name),'#' %>|<%= link_to resource.sub_category.try(:name), '#' %>]</span>
                 <span>浏览（<a href="#">63</a>）</span>
                 <span>评论（<a href="#">1</a>）</span>
               </div>
