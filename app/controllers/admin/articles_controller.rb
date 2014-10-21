@@ -1,8 +1,8 @@
 class Admin::ArticlesController < Admin::BaseController
 	layout 'admin'
 	def create
-    @articles = end_of_association_chain.new article_params
-
+    @article = end_of_association_chain.new article_params
+    @article.user_id = 1
     create! { collection_path }
   end
   def update

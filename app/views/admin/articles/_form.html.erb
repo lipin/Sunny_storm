@@ -1,4 +1,3 @@
-
 <%= simple_nested_form_for resource,url: url, defaults: { input_html: { class: 'default_class' } } do |f| %>
   <%= f.input :title, input_html: { class: 'special' } %>
   <%= f.input :content,input_html: { class: 'special',maxlength: 20 } %>
