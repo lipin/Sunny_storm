@@ -15,6 +15,9 @@ class ArticlesController < BaseController
 			render :edit
 		end
 	end
+	def show
+		resource.view!
+	end
 
 	protected
 	def article_params

@@ -37,3 +37,16 @@ puts 'creating articles success..'
 Article.all.map {|x| x.update_attribute(:user_id, rand(1..User.all.count))}
 Article.all.map {|x| x.update_attribute(:created_at, rand(30.days).ago)}
 puts 'Add Users to Artciles.....'
+categories = {
+  '滴答^走过' => ['生活', '情感', '其他'],
+  '放飞^心海' => ['人生', '回首', '其他'],
+  '动动^漫吧' => ['动物', '风景', '人物','其他' ],
+  '尚影^迷视' => ['电影', '电视剧', '其他'],
+  '爱上^听听' => ['舒缓节奏','伤感调频','快乐旋律', '其他']
+}
+
+categories.each do |key, arr|
+  category = Category.create(name: key)
+  arr.each{ |name| category.children.create(name: name) }
+end
+puts 'Create category success........'

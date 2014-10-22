@@ -11,7 +11,7 @@
               <div class="autor">
                 <span>作者：<%= resource.user.try(:username) %></span>
                 <span>分类：[<%= link_to resource.category.try(:name),'#'%>|<%= link_to resource.sub_category.try(:name),'#' %>]</span>
-                <span>浏览（<a href="#">63</a>）</span>
+                <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
                 <span>评论（<a href="#">1</a>）</span></div>
               <p>
                 <%= resource.content %>
@@ -19,7 +19,7 @@
               </p>
             </ul>
           <figure><%= image_tag('01.jpg')%></figure>
-          <div class="dateview"><%= resource.created_at %></div>
+          <div class="dateview"><%= resource.created_at.strftime('%Y-%m-%d') %></div>
         </div>
       <% end %>
     </div>

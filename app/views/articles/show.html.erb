@@ -1,18 +1,3 @@
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%=resource.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= resource.content %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(resource) %> |
-<%= link_to 'Back', collection_path %> -->
-
 <article>
     <h2 class="about_h">您现在的位置是：
       <%= link_to "首页",root_path %>&gt;
@@ -28,10 +13,10 @@
               <div class="autor">
                 <span>作者：<%= resource.user.username%></span>
                 <span>分类：[<%= link_to resource.category.try(:name),'#' %>|<%= link_to resource.sub_category.try(:name), '#' %>]</span>
-                <span>浏览（<a href="#">63</a>）</span>
+                <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
                 <span>评论（<a href="#">1</a>）</span>
               </div>
-            <div class="date">发表时间：<%= resource.created_at%></div>
+            <div class="date">发表时间：<%= resource.created_at.strftime('%Y-%m-%d %H:%S')%></div>
             <p></p>
           </ul>
 
@@ -43,12 +28,6 @@
             <%= resource.content %>
           </div>
         </div>
-      </div>
-      <div class="page">
-        <a title="Total record"><b>113</b></a><b>1</b><a href="/">2</a>
-        <a href="/">3</a><a href="/">4</a><a href="/">5</a>
-        <a href="/">&gt;</a>
-        <a href="/">&gt;&gt;</a>
       </div>
 </article>
 

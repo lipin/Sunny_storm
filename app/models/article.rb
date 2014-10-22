@@ -10,10 +10,15 @@
 #  user_id         :integer
 #  category_id     :integer
 #  sub_category_id :integer
+#  view_count      :float(24)        default(0.0)
 #
 
 class Article < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 	belongs_to :sub_category, class_name: 'Category'
+
+	def view!
+		self.class.update_counters(self.id,view_count: 0.5)
+	end
 end

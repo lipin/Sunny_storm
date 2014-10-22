@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019010943) do
+ActiveRecord::Schema.define(version: 20141022082309) do
 
   create_table "admin_users", force: true do |t|
     t.datetime "created_at"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141019010943) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "sub_category_id"
+    t.float    "view_count",      limit: 24, default: 0.0
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id", using: :btree
