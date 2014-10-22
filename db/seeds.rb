@@ -34,3 +34,6 @@ Article.create(
 	content: ' 是人都有惰性，这是与生俱来的，但是我们后天可以改变这种惰性，因为有很多人正在改变。对于某种事物或是生意不要等别人做到了，我才想到。不要等别人已经赚到钱了，我才想去做。没有人相信的是市场和机遇，大家都相信的叫做膨胀。'
 	)
 puts 'creating articles success..'
+Article.all.map {|x| x.update_attribute(:user_id, rand(1..User.all.count))}
+Article.all.map {|x| x.update_attribute(:created_at, rand(30.days).ago)}
+puts 'Add Users to Artciles.....'
