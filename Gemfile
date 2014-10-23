@@ -21,6 +21,8 @@ gem 'inherited_resources', '~> 1.5.0'
 
 gem 'ancestry'
 
+gem 'kaminari', '~> 0.16.1'
+
 gem 'simple_form'
 gem "nested_form"
 
