@@ -14,7 +14,7 @@
                 <span>作者：<%= resource.user.username%></span>
                 <span>分类：[<%= link_to resource.category.try(:name),'#' %>|<%= link_to resource.sub_category.try(:name), '#' %>]</span>
                 <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
-                <span>评论（<a href="#">1</a>）</span>
+                <span>评论（<%= link_to resource.comments_count%>）</span>
               </div>
             <div class="date">发表时间：<%= resource.created_at.strftime('%Y-%m-%d %H:%S')%></div>
             <p></p>
@@ -30,4 +30,22 @@
         </div>
       </div>
 </article>
+<div>
+  <%- if resource.comments.present? %>
+      <%- resource.comments.each do |comment| %>
+          <p>
+            <%= comment.user.username%>的评论：<br>
+            <%= comment.body%>
+          </p>
+      <% end %>
+    <% else %>
+      <p>暂无评论</p>
+  <% end %>
+</div>
 
+<%= simple_form_for resource.comments.new, url: comments_path("#{resource.class.name.underscore}_id" => resource.id), html: { class: 'form-horizontal comment-form' } do |f|  %>
+    <%=  current_user.username if current_user %>
+    <%= f.input :user_id, as: :hidden%>
+    <%= f.input :body, label: false, wrapper_html: { class: user_signed_in? ? '' : 'no-login' }%>
+    <%= f.button :submit, '发表', class: 'btn btn-primary'%>
+ <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022082309) do
+ActiveRecord::Schema.define(version: 20141023104546) do
 
   create_table "admin_users", force: true do |t|
     t.datetime "created_at"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141022082309) do
     t.integer  "category_id"
     t.integer  "sub_category_id"
     t.float    "view_count",      limit: 24, default: 0.0
+    t.integer  "comments_count",             default: 0
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id", using: :btree
@@ -56,6 +57,17 @@ ActiveRecord::Schema.define(version: 20141022082309) do
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   add_index "categories", ["position"], name: "index_categories_on_position", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "shares", force: true do |t|
     t.string   "title"

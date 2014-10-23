@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :articles
-
+  resources :comments
   namespace :admin do
      root 'home#index'
      resources :categories
