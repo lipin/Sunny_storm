@@ -15,6 +15,9 @@
                 <span>分类：[<%= link_to resource.category.try(:name),'#' %>|<%= link_to resource.sub_category.try(:name), '#' %>]</span>
                 <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
                 <span>评论（<%= link_to resource.comments_count%>）</span>
+                <% unless current_user != resource.user%>
+                 <span><%= link_to '编辑',edit_article_path(resource)%></span>
+                <% end %>
               </div>
             <div class="date">发表时间：<%= resource.created_at.strftime('%Y-%m-%d %H:%S')%></div>
             <p></p>
