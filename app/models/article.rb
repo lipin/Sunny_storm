@@ -11,7 +11,7 @@
 #  category_id     :integer
 #  sub_category_id :integer
 #  view_count      :float(24)        default(0.0)
-#  comments_count  :integer
+#  comments_count  :integer          default(0)
 #
 
 class Article < ActiveRecord::Base
