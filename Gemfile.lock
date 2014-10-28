@@ -39,6 +39,11 @@ GEM
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
     builder (3.2.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -85,6 +90,8 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.1)
+    mini_magick (3.8.1)
+      subexec (~> 0.2.1)
     minitest (5.4.2)
     multi_json (1.10.1)
     mysql2 (0.3.16)
@@ -135,6 +142,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    subexec (0.2.3)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -159,6 +167,7 @@ DEPENDENCIES
   ancestry
   annotate (~> 2.6.5)
   better_errors
+  carrierwave
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.0)
   foreman
@@ -166,6 +175,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari (~> 0.16.1)
+  mini_magick
   mysql2
   nested_form
   rails (= 4.1.6)
