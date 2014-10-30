@@ -22,7 +22,7 @@
                 <%= link_to "阅读全文",article_path(resource),target: "_blank", class: "readmore" %>
               </p>
             </ul>
-          <figure><%= image_tag('01.jpg')%></figure>
+          <figure><%= image_tag(resource.cover.try(:img_url))%></figure>
           <div class="dateview"><%= resource.created_at.strftime('%Y-%m-%d') %></div>
         </div>
       <% end %>

@@ -12,5 +12,14 @@
                               label: false,
                               prompt: '全部...',
                               input_html: { class: 'select2 category_target' }%>
+      <%# unless resource.new_record? %>
+      <%#= image_tag resource.cover.img_url(:thumb) %>
+      <%# end %>
+      <%= f.fields_for :images do |task_form| %>
+      <%= task_form.file_field :img %>
+      <%= task_form.hidden_field :img_cache %>
+      <%= task_form.link_to_remove "Remove this image" %>
+      <% end %>
+    <p><%= f.link_to_add "Add a iamge", :images %></p>
   <%= f.button :submit ,class: 'btn btn-primary'%>
 <% end %>

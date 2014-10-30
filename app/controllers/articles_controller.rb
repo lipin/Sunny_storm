@@ -4,7 +4,7 @@ class ArticlesController < BaseController
 	before_action :ensure_owner, only: [ :update, :destroy, :edit ]
 
 	def create
-		@article = resource.articles.build article_params
+		@article = current_user.articles.new article_params
 		create! { collection_path }
 	end
 

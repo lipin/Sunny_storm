@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :images
+
   namespace :admin do
     resources :articles
   end

@@ -21,7 +21,13 @@ class Article < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
 	attr_readonly :comments_count
 
+	has_many :images, dependent: :destroy
+	accepts_nested_attributes_for :images,:allow_destroy => true
+
 	def view!
 		self.class.update_counters(self.id,view_count: 0.5)
+	end
+	def cover
+		images.order('is_cover DESC').first
 	end
 end

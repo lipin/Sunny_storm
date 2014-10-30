@@ -24,7 +24,9 @@
           </ul>
 
           <figure>
-            <%= image_tag("008.jpg",class: "img") %>
+            <% resource.images.order('is_cover DESC').each do |image|%>
+            <%= image_tag(image.img_url(:thumb),class: "img") %>
+            <% end %>
           </figure>
 
           <div class="content">

@@ -1,0 +1,15 @@
+<%= simple_form_for(@image) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+    <p>
+    <label>My Photo</label>
+    <%= f.file_field :img %>
+    <%= f.hidden_field :img_cache %>
+  </p>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
