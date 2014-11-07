@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
-  resources :images
-
   namespace :admin do
+    root 'home#index'
+    resources :categories
+    resources :users
     resources :articles
   end
+  draw :my
+  draw :devise
+  draw :user
 
+  resources :images
   resources :articles
   resources :comments
-  namespace :admin do
-     root 'home#index'
-     resources :categories
-  end
-
   get 'categories/sub_categories'=> 'categories#sub_categories', as: :load_subcategory
 
   devise_for :admin_users,controllers: {sessions: 'admin/sessions'}
-  devise_for :users
+
   root 'home#index'
   get 'about'=>'home#about'
   get 'life'=>'home#life'
   get 'share'=>'home#share'
-  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
