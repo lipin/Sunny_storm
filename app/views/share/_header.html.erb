@@ -10,8 +10,9 @@
     	<%= link_to "慢生活",life_path %>
     	<%= link_to "关于我",about_path %>
       <%- if user_signed_in? %>
-          <%= link_to "粉丝列表",users_path %>
-          <%= link_to "退出",destroy_user_session_path, method: :delete%><%= link_to current_user.username,'##'%>
+          <%#= link_to "粉丝列表",users_path %>
+          <%= link_to "退出",destroy_user_session_path, method: :delete%>
+          <%= link_to current_user.username,my_profile_url %>
         <% else %>
           <%= link_to "粉丝",new_user_session_path %>
           <%= link_to "登录",new_user_session_path %>
