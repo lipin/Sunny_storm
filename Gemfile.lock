@@ -171,6 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.0)
   foreman
+  has_scope
   inherited_resources (~> 1.5.0)
   jbuilder (~> 2.0)
   jquery-rails

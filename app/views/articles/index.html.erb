@@ -6,7 +6,6 @@
     <div class="bloglist">
       <%- collection.each do |resource| %>
         <div class="newblog">
-            <ul>
               <h3><%= link_to resource.title,article_path(resource) %></h3>
               <div class="autor">
                 <span>作者：<%= resource.user.try(:username) %></span>
@@ -17,11 +16,11 @@
                 <span><%= link_to '编辑',edit_article_path(resource)%></span>
                 <% end %>
               </div>
-              <p>
-                <%= resource.content %>
+
+              <ul>
+                <p><%= resource.content %></p>
                 <%= link_to "阅读全文",article_path(resource),target: "_blank", class: "readmore" %>
-              </p>
-            </ul>
+              </ul>
           <figure><%= image_tag(resource.cover.try(:img_url))%></figure>
           <div class="dateview"><%= resource.created_at.strftime('%Y-%m-%d') %></div>
         </div>

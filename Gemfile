@@ -20,6 +20,7 @@ gem 'devise', '~> 3.4.0'
 gem 'inherited_resources', '~> 1.5.0'
 
 gem 'ancestry'
+gem 'has_scope'
 
 gem 'kaminari', '~> 0.16.1'
 

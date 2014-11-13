@@ -9,6 +9,7 @@
       <th>time</th>
       <th>category</th>
       <th colspan="3"></th>
+      <th>status</th>
     </tr>
   </thead>
 
@@ -23,7 +24,20 @@
         <td><%= link_to 'Show', admin_article_path(resource) %></td>
         <td><%= link_to 'Edit', edit_admin_article_path(resource) %></td>
         <td><%= link_to 'Destroy', admin_article_path(resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <div class='btn-group'></div> -->
+        <td>
+          <%- if resource.is_featured? %>
+             <%= link_to resource_path(resource, event: :mark_as_unfeatured), method: :put do %>
+            取消推荐
+              <% end %>
+          <% else %>
+            <%= link_to resource_path(resource, event: :mark_as_featured), method: :put do %>
+            推荐
+              <% end %>
+          <% end %>
+        </td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
