@@ -13,7 +13,7 @@
           <%= link_to "阅读全文",article_path(article),target: "_blank", class: "readmore" %>
         </ul>
         <p class="autor">
-        <span>作者：<%= article.user.username%></span>
+        <span>作者：<%= link_to article.user.username,user_path(article)%></span>
         <span>分类：[<%= link_to article.category.try(:name),'#' %>|<%= link_to article.sub_category.try(:name), '#' %>]</span>
         <span>浏览（<%= link_to article.view_count.to_i,'#' %>）</span>
         <span>评论（<%= link_to article.comments_count%>）</span>

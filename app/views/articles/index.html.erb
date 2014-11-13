@@ -8,7 +8,7 @@
         <div class="newblog">
               <h3><%= link_to resource.title,article_path(resource) %></h3>
               <div class="autor">
-                <span>作者：<%= resource.user.try(:username) %></span>
+                <span>作者：<%= link_to resource.user.try(:username),user_path(resource) %></span>
                 <span>分类：[<%= link_to resource.category.try(:name),'#'%>|<%= link_to resource.sub_category.try(:name),'#' %>]</span>
                 <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
                 <span>评论（<%= link_to resource.comments_count%>）</span>
