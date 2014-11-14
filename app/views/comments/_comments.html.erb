@@ -1,0 +1,28 @@
+ <%- if resource.comments.present? %>
+	<%- resource.comments.really.by_time.limit(30).each_with_index do |comment, index| %>
+	      <%= render 'comments/comment', comment: comment, index: index %>
+	<% end %>
+ <% else %>
+    <p>暂无评论</p>
+ <% end %>
+<%= simple_form_for resource.comments.new, url: comments_path("#{resource.class.name.underscore}_id" => resource.id), html: { class: 'form-horizontal comment-form' } ,remote: true do |f|  %>
+    <%=  current_user.username if current_user %>
+    <%= f.input :quote_id, as: :hidden%>
+    <%= f.input :body, :as => :kindeditor, :input_html => { :simple_mode => true, :width => 727, :height => 100  } ,label: false, wrapper_html: { class: user_signed_in? ? '' : 'no-login' }%>
+    <%= f.button :submit, '发表', class: 'btn btn-primary'%>
+ <% end %>
+   <%- content_for :js do %>
+      $(document).on 'click', '.go-comment', (event) ->
+        parent = $(this).parents('.comment-item')
+        $('#comment_quote_id').attr 'value', parent.data('id')
+
+        $('#reply-message').html("回复 " + parent.find('.username .username').text() + "<a href='javascript:void(0)' id='reply-back', class='btn btn-sm'>撤销</a>")
+        $('html,body').animate {scrollTop: ($('#comment_body').offset().top - 500)}, 'slow'
+        $('#comment_body').focus()
+
+
+      $(document).on 'click', '#reply-back', (event) ->
+        $('#comment_quote_id').removeAttr 'value'
+        $('small#reply-message').html('')
+        $('#comment_body').val('')
+<% end %>

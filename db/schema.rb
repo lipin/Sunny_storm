@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113011659) do
+ActiveRecord::Schema.define(version: 20141114063014) do
 
   create_table "admin_users", force: true do |t|
     t.datetime "created_at"
@@ -66,8 +66,10 @@ ActiveRecord::Schema.define(version: 20141113011659) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "quote_id"
   end
 
+  add_index "comments", ["quote_id"], name: "index_comments_on_quote_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "images", force: true do |t|
