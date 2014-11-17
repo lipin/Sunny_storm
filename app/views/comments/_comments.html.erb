@@ -11,18 +11,21 @@
     <%= f.input :body, :as => :kindeditor, :input_html => { :simple_mode => true, :width => 727, :height => 100  } ,label: false, wrapper_html: { class: user_signed_in? ? '' : 'no-login' }%>
     <%= f.button :submit, '发表', class: 'btn btn-primary'%>
  <% end %>
-   <%- content_for :js do %>
-      $(document).on 'click', '.go-comment', (event) ->
-        parent = $(this).parents('.comment-item')
-        $('#comment_quote_id').attr 'value', parent.data('id')
+   <script>
+        $(document).on('click', '.go-comment', function(event) {
+          var parent;
+          parent = $(this).parents('.comment-item');
+          $('#comment_quote_id').attr('value', parent.data('id'));
+          $('#reply-message').html("回复 " + parent.find('.username .username').text() + "<a href='javascript:void(0)' id='reply-back', class='btn btn-sm'>撤销</a>");
+          $('html,body').animate({
+            scrollTop: $('#comment_body').offset().top 
+          }, 'slow');
+          return $('#comment_body').focus();
+        });
 
-        $('#reply-message').html("回复 " + parent.find('.username .username').text() + "<a href='javascript:void(0)' id='reply-back', class='btn btn-sm'>撤销</a>")
-        $('html,body').animate {scrollTop: ($('#comment_body').offset().top - 500)}, 'slow'
-        $('#comment_body').focus()
-
-
-      $(document).on 'click', '#reply-back', (event) ->
-        $('#comment_quote_id').removeAttr 'value'
-        $('small#reply-message').html('')
-        $('#comment_body').val('')
-<% end %>
+        $(document).on('click', '#reply-back', function(event) {
+          $('#comment_quote_id').removeAttr('value');
+          $('small#reply-message').html('');
+          return $('#comment_body').val('');
+        });
+    </script>

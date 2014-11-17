@@ -1,5 +1,6 @@
-<li data="<%= {id: comment.id}%>"></li>
-<div class= "comment-item",data="<%= {id: comment.id} %>">
+
+<li  data-id="<%=comment.id%>">
+<div class="comment-item" data-id="<%=comment.id%>">
           <p>
             <%= "#{index+1}"%>楼
             <%= link_to comment.user.username, user_path(comment)%>的评论：<br>
@@ -10,7 +11,9 @@
             <%= "#{ time_ago_in_words comment.created_at }" %>前
           </p>
       <%- if comment.quote_id? %>
-        <%= link_to comment.quote_user_name, user_path(comment.user), class: 'quote-user' %>
+      引用
+        <%= link_to comment.quote.user.username, user_path(comment.user), class: 'quote-user' %>
+        的话:
          <%= sanitize comment.quote.body %>
       <% end %>
         <%- if current_user && current_user.id == comment.user_id %>
@@ -19,3 +22,4 @@
        <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
        
 </div>
+</li>
