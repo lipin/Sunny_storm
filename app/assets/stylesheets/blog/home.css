@@ -60,9 +60,14 @@ text-decoration: none;
 }
 .us{
   padding-left: 5px;
+  padding-bottom: 5px;
 }
 .us_name{
   /*background-color: #0f9c7c;*/
   color:rgb(158, 126, 107);
   font-weight: bold;
+}
+.os{
+  padding-left: 5px;
+  padding-bottom: 5px;
 }

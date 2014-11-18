@@ -19,8 +19,10 @@
       </span>
     </div>
     <%= f.input :quote_id, as: :hidden%>
-    <%= f.text_area :body,size: "88x5" ,wrapper: :bootstrap,label: false %>
-    <%= f.button :submit, '发表', class: 'btn btn-primary'%>
+    <div class='os'>
+      <%= f.text_area :body,size: "88x5" ,wrapper: :bootstrap,label: false %>
+      <%= f.button :submit, '发表', class: 'btn btn-primary'%>
+    </div>
  <% end %>
    <script>
         $(document).on('click', '.go-comment', function(event) {
