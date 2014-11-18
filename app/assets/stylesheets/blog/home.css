@@ -2,7 +2,6 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f5f5f5;
-  list-style-type:none
 }
 
 .form-signin {
@@ -70,4 +69,16 @@ text-decoration: none;
 .os{
   padding-left: 5px;
   padding-bottom: 5px;
+}
+.autor {
+  margin: 5px;
+}
+.comment-list li:first-child{
+  border-top: 1px dashed  #eee;
+}
+.comment-list li{
+   border-bottom: 1px dashed #eee;
+}
+.comment-list-total{
+  padding-top: 200px;
 }

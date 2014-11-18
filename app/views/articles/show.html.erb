@@ -7,11 +7,8 @@
       <div class="bloglist">
         <div class="newblog1">
           <ul>
-            <h3>
-              <%= link_to resource.title,article_path(resource),class: "title" %>
-            </h3>
-            <p class="autor">
               <div class="autor">
+                <span><%= link_to resource.title,article_path(resource),class: "title" %></span>
                 <span>作者：<%= resource.user.username%></span>
                 <span>分类：[<%= link_to resource.category.try(:name),'#' %>|<%= link_to resource.sub_category.try(:name), '#' %>]</span>
                 <span>浏览（<%= link_to resource.view_count.to_i,'#' %>）</span>
@@ -19,9 +16,8 @@
                 <% unless current_user != resource.user%>
                  <span><%= link_to '编辑',edit_article_path(resource)%></span>
                 <% end %>
+                <span>发表时间：<%= resource.created_at.strftime('%Y-%m-%d')%></span>
               </div>
-            <div class="dateview">发表时间：<%= resource.created_at.strftime('%Y-%m-%d %H:%S')%></div>
-            </p>
           </ul>
 
           <figure>
@@ -36,4 +32,6 @@
         </div>
       </div>
 </article>
-<%= render 'comments/comments', resource: resource %>
+<div class='comment-list-total'>
+  <%= render 'comments/comments', resource: resource %>
+</div>

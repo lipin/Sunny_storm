@@ -1,4 +1,4 @@
- <div class="comment-list">
+ <ul class="comment-list">
    <%- if resource.comments.present? %>
     	<%- resource.comments.really.by_time.limit(30).each_with_index do |comment, index| %>
     	      <%= render 'comments/comment', comment: comment, index: index %>
@@ -6,7 +6,7 @@
    <% else %>
        <p>暂无评论</p>
    <% end %>
- </div>
+ </ul>
  <div class='info'>
     <h3 class="site" id="site">
     <small id="reply-message"></small>
