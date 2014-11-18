@@ -5,6 +5,9 @@
  <% else %>
     <p>暂无评论</p>
  <% end %>
+<h3 class="site" id="site">
+<small id="reply-message"></small>
+</h3>
 <%= simple_form_for resource.comments.new, url: comments_path("#{resource.class.name.underscore}_id" => resource.id), html: { class: 'form-horizontal comment-form' } ,remote: true do |f|  %>
     <%=  current_user.username if current_user %>
     <%= f.input :quote_id, as: :hidden%>
@@ -18,7 +21,7 @@
           $('#comment_quote_id').attr('value', parent.data('id'));
           $('#reply-message').html("回复 " + parent.find('.username .username').text() + "<a href='javascript:void(0)' id='reply-back', class='btn btn-sm'>撤销</a>");
           $('html,body').animate({
-            scrollTop: $('#comment_body').offset().top 
+            scrollTop: $('#comment_body').offset().top + 500
           }, 'slow');
           return $('#comment_body').focus();
         });
