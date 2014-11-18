@@ -33,6 +33,7 @@ body {
 font-size: 15px;
 color: #bbb;
 line-height:200%;
+padding-left: 10px;
 }
 .reply-floor{
 margin-right: 0;
@@ -43,6 +44,7 @@ text-decoration: none;
   font-size: 14px;
   color: #759b08;
   word-spacing: 30px;
+  padding-left: 10px;
 }
 .c_zuo{
   font-size: 13px;
@@ -54,5 +56,13 @@ text-decoration: none;
   /*text-decoration:underline;*/
 }
 .comment-form{
-  float:right;
+  /*float:right;*/
+}
+.us{
+  padding-left: 5px;
+}
+.us_name{
+  /*background-color: #0f9c7c;*/
+  color:rgb(158, 126, 107);
+  font-weight: bold;
 }
