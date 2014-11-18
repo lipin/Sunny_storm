@@ -1,8 +1,8 @@
 <li  data-id="<%=comment.id%>">
       <div class="comment-item" data-id="<%=comment.id%>">
             <div class='info'>
-            <div class='reply-floor'>
-                <%= "#{index+1}"%>楼
+                <div class='reply-floor'>
+                  <%= "#{index+1}"%>楼
                 </div>
               <div class="username">
                   <span class="reply-at">
@@ -10,7 +10,7 @@
                   </span>
                   <%= link_to comment.user.email, user_path(comment.user),class: "username",title: comment.user.email %>的评论：
               </div>
-            <div class='comment-text' >
+              <div class='comment-text' >
                <%- if comment.quote_id? %> 引用
 
                   <%= link_to comment.quote.user.email, user_path(comment.user), class: 'quote-user' %>的话:
@@ -18,16 +18,17 @@
                   <%= sanitize comment.quote.body%>
 
                <% end %>
-            </div>
+              </div>
               <div class='f_color'>
                <%= sanitize comment.body%>
               </div>
                <div class="c_zuo">
-              <%- if current_user && current_user.id == comment.user_id %>
-               <%= link_to '删除', comment_path(comment), method: :delete, remote: true %>
+                <%- if current_user && current_user.id == comment.user_id %>
+                 <%= link_to '删除', comment_path(comment), method: :delete, remote: true %>
 
-              <% end %>
+                <% end %>
 
-              <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
-            </div>
+                <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
+                </div>
+      </div>
 </li>

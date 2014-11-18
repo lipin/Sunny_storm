@@ -53,3 +53,6 @@ text-decoration: none;
   font-weight: bold; 
   /*text-decoration:underline;*/
 }
+.comment-form{
+  float:right;
+}
