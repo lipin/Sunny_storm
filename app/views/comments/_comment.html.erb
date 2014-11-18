@@ -8,7 +8,7 @@
                   <span class="reply-at">
                     <%= "#{ time_ago_in_words comment.created_at }" %>前
                   </span>
-                  <%= link_to comment.user.username, user_path(comment),class: "username",title: comment.user.username %>的评论：
+                  <%= link_to comment.user.email, user_path(comment.user),class: "username",title: comment.user.email %>的评论：
               </div>
             <div class='comment-text' >
                <%- if comment.quote_id? %> 引用
