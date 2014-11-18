@@ -13,11 +13,10 @@
 #
 
 class Comment < ActiveRecord::Base
-
+	validates :body, presence: true
 	belongs_to :user
 	belongs_to :quote, class_name: 'Comment', foreign_key: 'quote_id'
 	belongs_to :commentable, polymorphic: true, counter_cache: :comments_count
-
 	scope :really, ->{ where('id is not null') }
 	scope :by_time, ->{ order('created_at ASC') }
 end

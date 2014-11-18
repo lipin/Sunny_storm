@@ -25,10 +25,9 @@
                <div class="c_zuo">
                 <%- if current_user && current_user.id == comment.user_id %>
                  <%= link_to '删除', comment_path(comment), method: :delete, remote: true %>
-
-                <% end %>
-
+                <% else%>
                 <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
+                <% end %>
                 </div>
       </div>
 </li>
