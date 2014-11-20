@@ -10,23 +10,27 @@
                   </span>
                   <%= link_to comment.user.email, user_path(comment.user),class: "username",title: comment.user.email %>的评论：
               </div>
-              <div class='comment-text' >
-               <%- if comment.quote_id? %> 引用
+              <%- if comment.quote_id %>
+                <div class='comment-text' >
+                  引用
+                   <%- if comment.quote %> 
+                        <%= link_to comment.quote_user_email, user_path(comment.user), class: 'quote-user' %>的话:
+                    <% else %>
+                        该评论已被删除
+                    <% end %>
 
-                  <%= link_to comment.quote.user.email, user_path(comment.user), class: 'quote-user' %>的话:
+                    <%= sanitize comment.quote.try(:body)%>
 
-                  <%= sanitize comment.quote.body%>
-
+                </div>
                <% end %>
-              </div>
               <div class='f_color'>
                <%= sanitize comment.body%>
               </div>
                <div class="c_zuo">
                 <%- if current_user && current_user.id == comment.user_id %>
-                 <%= link_to '删除', comment_path(comment), method: :delete, remote: true %>
-                <% else%>
-                <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
+                  <%= link_to '删除', comment_path(comment), method: :delete, remote: true %>
+                 <% else %>
+                  <%= link_to '评论', 'javascript:void(0)', class: 'go-comment' %>
                 <% end %>
                 </div>
       </div>

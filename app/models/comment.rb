@@ -19,4 +19,12 @@ class Comment < ActiveRecord::Base
 	belongs_to :commentable, polymorphic: true, counter_cache: :comments_count
 	scope :really, ->{ where('id is not null') }
 	scope :by_time, ->{ order('created_at ASC') }
+	 delegate :username, to: :user, prefix: false
+	def quote_user_email
+	    if quote
+	      quote.try(:user).try(:email)
+	    else
+	      "该引用评论已被删除"
+	    end
+    end
 end
