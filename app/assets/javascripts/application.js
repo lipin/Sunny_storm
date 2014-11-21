@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require kindeditor
 //= require turbolinks
-//= require articles
+//= require article/articles
 //= require jquery_nested_form
+//= require article/jquery.fancybox.pack
+//= require article/popup

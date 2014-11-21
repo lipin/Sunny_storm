@@ -82,3 +82,12 @@ text-decoration: none;
 .comment-list-total{
   padding-top: 200px;
 }
+.login{
+  float: left;
+  width: 730px;
+  /*height: auto;*/
+  /*border: 1px solid;*/
+  text-align:center;
+  margin:0 auto;
+  display:inline;
+}

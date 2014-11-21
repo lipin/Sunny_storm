@@ -1,0 +1,34 @@
+zh-CN:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
+    labels:
+      user:
+        is_agreed: "<span>我同意接受玩艺儿网<a href='/pages/yonghutiaokuan' class='brownness' target='_blank'>会员条款</a>和<a href='/pages/mianzeshengming' class='brownness' target='_blank'>免责声明</a></span>"
+        new:
+          email: 帐号
+          password: 密码
+          password_confirmation: 重复密码
+          remember_me: 记住密码
