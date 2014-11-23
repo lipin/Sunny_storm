@@ -73,9 +73,9 @@ text-decoration: none;
 .autor {
   margin: 5px;
 }
-.comment-list li:first-child{
+/*.comment-list li:first-child{
   border-top: 1px dashed  #eee;
-}
+}*/
 .comment-list li{
    border-bottom: 1px dashed #eee;
 }
@@ -91,3 +91,5 @@ text-decoration: none;
   margin:0 auto;
   display:inline;
 }
+/*.fancybox-inner {position: relative;}*/
+/*.fancybox-inner  a#btn-fancy-close {position: absolute;top: 0;right: 0;z-index: 99999;font-size: 18px;}*/

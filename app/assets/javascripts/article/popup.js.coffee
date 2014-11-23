@@ -3,17 +3,15 @@ root = exports ? this
 
 # Fancybox options settings
 fancyboxOptions =
-  autoDimensions: false
-  width: 730
-  height: 500
+  # width: 700
+  # height: 600
   fitToView: true
   autoSize: true
-  centerOnScroll: true
-  padding: 10
+  # padding: 0
   closeClick: false
   arrows:false
-  openEffect: 'none'
-  closeEffect: 'none'
+  # openEffect: 'none'
+  # closeEffect: 'none'
   type: 'ajax'
   closeBtn: true
   arrows: false
@@ -33,7 +31,7 @@ fancyboxOptions =
 
 $ ->
   $('.ajax-popup').fancybox fancyboxOptions
-  $('.fancybox').fancybox().resize
+  $('.fancybox').fancybox()
 
   $(document).on 'click', 'a#btn-fancy-close', (e) ->
     e.preventDefault()

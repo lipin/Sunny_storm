@@ -14,11 +14,14 @@
 		  <%= csrf_meta_tags %>
 		</head>
 		<body>
-			<div class="ibody">
-			  <%= render 'share/header' %>
-			  <%= render 'share/side_left' %>
-				<%= yield %>
-
-			<div>
+			<%- if request.xhr? %>
+				<%= render 'login_popup' %>
+			<% else %>
+				<div class="ibody">
+				  <%= render 'share/header' %>
+				  <%= render 'share/side_left' %>
+					<%= yield %>
+				<div>
+			<% end %>
 		</body>
 </html>
