@@ -14,7 +14,7 @@
           <%= link_to "退出",destroy_user_session_path, method: :delete%>
           <%= link_to current_user.email,my_profile_url %>
         <% else %>
-          <%= link_to "粉丝",new_user_session_path %>
+          <%#= link_to "粉丝",new_user_session_path %>
           <%= link_to "登录",new_user_session_path,class:'login-btn' %>
           <%= link_to "登录",new_user_session_path,class: 'ajax-popup btn-login',style: 'display: none' %>
       <% end %>
