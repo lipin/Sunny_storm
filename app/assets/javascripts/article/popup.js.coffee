@@ -21,12 +21,11 @@ fancyboxOptions =
       closeClick: false
       opacity: 0.6
       locked: false
-  beforeClose: (e) ->
-    $('.select2-drop-active').hide()
-  # afterClose: (e)->
-  #   url = $(e.content).data('after-close-url')
-  #   if url
-  #     window.location.href = url
+  # beforeClose: (e) ->
+  #  $('.select2-drop-active').hide()
+  afterClose: ->
+      location.reload()
+      return
 
 
 $ ->

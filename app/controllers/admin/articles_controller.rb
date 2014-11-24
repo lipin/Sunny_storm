@@ -1,5 +1,4 @@
 class Admin::ArticlesController < Admin::BaseController
-	layout 'admin'
   has_scope :by_state
 	def create
     @article = end_of_association_chain.new article_params

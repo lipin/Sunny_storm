@@ -1,5 +1,4 @@
 class Admin::CategoriesController < Admin::BaseController
-	layout 'admin'
   def create
     @category = end_of_association_chain.new category_params
     if @category.save
