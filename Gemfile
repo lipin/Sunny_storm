@@ -27,8 +27,6 @@ gem 'kaminari', '~> 0.16.1'
 gem 'simple_form'
 gem "nested_form"
 
-gem 'rails_kindeditor'
-
 # uploder
 gem 'carrierwave'
 gem 'mini_magick'
