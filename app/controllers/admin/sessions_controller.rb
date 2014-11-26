@@ -1,5 +1,5 @@
 class Admin::SessionsController < Devise::SessionsController
-
+  layout 'admin'
   # before_filter :set_body_class
 
   def set_body_class
