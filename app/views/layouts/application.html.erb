@@ -13,9 +13,9 @@
 		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		  <%= csrf_meta_tags %>
 		</head>
-		<body>
-			<%- if request.xhr? %>
-				<%= render 'login_popup' %>
+		<body id="<%= params[:controller].gsub('/', '_') %>" class= "<%= params[:action] %>" >
+			<%- if content_for?(:main) %>
+				<%= yield (:main) %>
 			<% else %>
 				<div class="ibody">
 				  <%= render 'share/header' %>
